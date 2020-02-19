@@ -69,7 +69,7 @@ def vocabularyTest(languageChoice):
 	global score
 
 	#check if the user's answer is correct and increment the score if they got it. Give them the option to quit here
-	if testQuestion == localDictionary['english']:
+	if testQuestion.lower() == localDictionary['english']:
 		score = score + 1
 		print("Correct! Score:", score)
 		vocabularyTest(languageChoice)
@@ -77,6 +77,7 @@ def vocabularyTest(languageChoice):
 		exit()
 	else:
 		print("Incorrect. The correct answer was:",localDictionary['english'])
+		print("Score:", score)
 		vocabularyTest(languageChoice)
 
 #ask the user what language they would like to test
@@ -86,7 +87,7 @@ def main():
 	run_transaction(sessionmaker(bind=engine), queryTheDB)
 
 	languageChoice = input("Would you like to test your knowledge of French or Spanish vocabulary? \n")
-	vocabularyTest(languageChoice)
+	vocabularyTest(languageChoice.lower())
 
 #start the program
 if __name__ == '__main__':
