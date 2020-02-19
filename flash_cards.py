@@ -85,7 +85,7 @@ def main():
 	#load the words from the db
 	run_transaction(sessionmaker(bind=engine), queryTheDB)
 
-	languageChoice = input("Would you like to test your knowledge of French or Spanish vocabulary?")
+	languageChoice = input("Would you like to test your knowledge of French or Spanish vocabulary? \n")
 	vocabularyTest(languageChoice)
 
 #start the program
